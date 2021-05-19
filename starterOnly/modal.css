@@ -177,15 +177,15 @@ main {
   animation-duration: var(--modal-duration);
   background: #232323;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
   color: #fff;
   padding-top: 10px;
+  height: 750px;
 }
 
 .modal-body {
   padding: 15px 8%;
-  margin: 15px auto;
 }
 
 label {
