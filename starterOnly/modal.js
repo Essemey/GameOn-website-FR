@@ -11,6 +11,8 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const confirmation = document.getElementById('confirmation');
+const confirmationBtn = document.getElementById('confirmation-btn');
 const modalCloseBtn = document.querySelectorAll(".close");
 const radioInputs = document.querySelectorAll("div.formData input[name='location']");
 const form = document.querySelector('form');
@@ -31,6 +33,7 @@ function launchModal() {
 function closeModal() {
   modalbg.style.display = "none";
 }
+
 
 
 let errors = {};      //Erreurs du formulaire
@@ -251,8 +254,15 @@ function validate(e) {
       valid = false;
     }
 
-    if (valid === true) {
-      form.submit()
+    if (valid === true) { //Une fois le formulaire valide
+      //form.submit()
+      confirmation.style.display = "flex";
+      confirmationBtn.addEventListener('click', () => {
+        confirmation.style.display = "none";
+        formContent = {}; //On efface les données enregistrées
+        form.reset() // On efface les données présentent dans le formulaire
+        closeModal()
+      })
     }
 
   }
